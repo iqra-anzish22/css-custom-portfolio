@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineMenuOpen, MdOutlineClose } from "react-icons/md";
 import { useState } from "react";
+import "../app/styles/navbar.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,29 +10,29 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <div className="container pt-8">
-      <div className="flex justify-between items-center">
-        <div className="text-5xl font-medium">IQra Waqas</div>
+    <div className="navbar-container ">
+      <div className="navbar">
+        <div className="navbar-brand">IQra Waqas</div>
 
-        <ul className="gap-10 lg:gap-16 hidden md:flex">
-          <li className="menuLink text-3xl font-semibold">
+        <ul className={`navbar-links ${isMenuOpen ? 'open': ''}`}>
+          <li className="navbar-link">
             <a href="#hero">Home</a>
           </li>
-          <li className="menuLink text-3xl font-semibold">
+          <li className="navbar-link">
             <a href="#about">About</a>
           </li>
-          <li className="menuLink text-3xl font-semibold">
+          <li className="navbar-link">
             <a href="#projects">Projects</a>
           </li>
-          <li className="menuLink text-3xl font-semibold">
+          <li className="navbar-link">
             <a href="#skills">Skills</a>
           </li>
-          <li className="menuLink text-3xl font-semibold">
+          <li className="navbar-link">
             <a href="#contact">Contact</a>
           </li>
         </ul>
 
-        <div className="md:hidden" onClick={toggleMenu}>
+        <div className="navbar-menu-icon" onClick={toggleMenu}>
           {isMenuOpen ? (
             <MdOutlineClose size={30} />
           ) : (
@@ -42,20 +43,20 @@ const Navbar = () => {
 
 
       {isMenuOpen && (
-       <ul className="flex flex-col gap-4 mt-4 md:hidden">
-       <li className="menuLink">
+       <ul className={`navbar-menu ${isMenuOpen ? 'open': ''}`}>
+       <li className="navbar-link a">
         <a href="#hero" onClick={toggleMenu}>Home</a>
        </li>
-       <li className="menuLink">
+       <li className="navbar-link">
         <a href="#about" onClick={toggleMenu}>About</a>
        </li>
-       <li className="menuLink">
+       <li className="navbar-link">
         <a href="#projects" onClick={toggleMenu}>Projects</a>
        </li>
-       <li className="menuLink">
+       <li className="navbar-link">
         <a href="#skills" onClick={toggleMenu}>Skills</a>
        </li>
-       <li className="menuLink">
+       <li className="navbar-link">
         <a href="#contact" onClick={toggleMenu}>Contact</a>
        </li>
        </ul>

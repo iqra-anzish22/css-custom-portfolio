@@ -1,6 +1,26 @@
 import React from 'react'
 import Image from 'next/image';
 import '../app/styles/card.css';
+import { useEffect, useState } from 'react';
+
+
+// components/Card.tsx
+
+
+
+  const [windowLocation, setWindowLocation] = useState('');
+
+
+
+
+
+
+
+
+
+
+
+
 interface propsType{
     title:string;
     desc: string;
@@ -34,4 +54,4 @@ const Card: React.FC<propsType> = ({ title, desc, img, tags }) => {
   );
 };
 
-export default Card
+export default Card;
